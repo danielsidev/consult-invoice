@@ -16,7 +16,7 @@ sudo npm install
 
 ### Irá rodar os testes
 ``` bash
-sudo npm test-dev
+sudo npm run test-dev
 ``` 
 ### Irá rodar em localhost:32019
 ``` bash
