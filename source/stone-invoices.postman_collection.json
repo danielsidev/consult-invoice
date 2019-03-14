@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "2ccb0e09-0d5e-401f-8fab-7f981bc025d4",
+		"name": "Stone Desafio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DELETE INVOICE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoiMjAxOS0wMy0xNCAwMDowMTozNCIsImlhdCI6MTU1MjUzMjQ5NCwiZXhwIjoxNTUyNTM2MDk0fQ.ajY9OZJXgQlucIPzuplHa6_bUCzCAtRUKTqgZBUeAwM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:32019/api/v1/invoices/delete/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32019",
+					"path": [
+						"api",
+						"v1",
+						"invoices",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST INOVICES",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-order-by-month",
+						"value": "ReferenceMonth",
+						"type": "text"
+					},
+					{
+						"key": "x-access-order-by-year",
+						"value": "ReferenceYear",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-access-order-by-doc",
+						"value": "Document",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoiMjAxOS0wMy0xMiAyMjozNzowNSIsImlhdCI6MTU1MjQ0MTAyNSwiZXhwIjoxNTUyNDQ0NjI1fQ.-H18435tNiMgUHULq6LEyRDt5mlUd0Q_mqBG29ZfifE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:32019/api/v1/invoices/list/0/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32019",
+					"path": [
+						"api",
+						"v1",
+						"invoices",
+						"list",
+						"0",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRETATE ACCESS TOKEN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "login",
+							"value": "stoneTest",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "$T0n&n3t&s5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:32019/api/v1/token/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32019",
+					"path": [
+						"api",
+						"v1",
+						"token",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CHECK VALID TOKEN",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoiMjAxOS0wMy0xMiAyMjozNzowNSIsImlhdCI6MTU1MjQ0MTAyNSwiZXhwIjoxNTUyNDQ0NjI1fQ.-H18435tNiMgUHULq6LEyRDt5mlUd0Q_mqBG29ZfifE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:32019/api/v1/token/valid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32019",
+					"path": [
+						"api",
+						"v1",
+						"token",
+						"valid"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
