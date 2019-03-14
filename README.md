@@ -26,7 +26,9 @@ sudo npm run dev
 Crie um token de sessão e utilize para acessar os endpoints abaixo. Caso contrário receberá um mensagem de token inválido ou expirado.
 >Em ./source/stone-invoices.postman_collection.json existe uma collection do Postman para testar os endpoints abaixo. Basta importá-la.
 
->HOST: http://localhost::32019 
+---
+
+## Host: http://localhost:32019 
 ### Os endpoints da aplicação para consulta são:
 Para criar o token de sessão
 ``` bash
