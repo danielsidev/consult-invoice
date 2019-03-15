@@ -21,16 +21,14 @@ class InvoiceController extends InvoiceDao{
         }
          return new Promise((resolve, reject) => {
              this.getInvoices(start, end, orderByChecked,(err,rows) =>{
-                this.closeConnection();
-                console.log("result: "+JSON.stringify(rows));                
-                (err)?reject(err):resolve(rows);
+                (err!==null)?reject(err):resolve(rows);
              });
         }); 
     }
     deleteInvoiceControl(Invoice){
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {           
             this.deleteInvoice(Invoice, (err) =>{
-                (err)?reject(err):resolve("Invoice deleted with success!");
+                (err!==null)?reject(err):resolve("Invoice deleted with success!");
             });
         }); 
     }
