@@ -7,7 +7,7 @@
 
 ### Abra um console do Mysql logado com um usuário com privilégios de grant
 Copie e cole um bloco de código SQL por vez que se encontra em ./source/init.database.sql.
-Isso irá criar o banco, o usuário da aplicação e  tabela para os posts.
+Isso irá criar o banco, o usuário da aplicação e  tabela para as invoices.
 
 ### Instale as dependências 
 ``` bash
