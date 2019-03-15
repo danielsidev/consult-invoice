@@ -16,7 +16,7 @@ router.get('/valid',(req,res,next) => {
             res.status(200).json({"response":200, "error":null, "body":msg});
         }else{
             data.erro = "Invalid Token!";
-            errorlog("Router: /api/v1/token/valid ","Inavlid Token: "+data);
+            errorlog("Router: /api/v1/token/valid ","Inavlid Token: "+JSON.stringify(data));
             res.status(401).json({"response":401, "error":"Invalid Token!", "body":msg});
         }
     });

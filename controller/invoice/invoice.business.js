@@ -113,7 +113,7 @@ class InvoiceBusiness extends InvoiceController{
                 }
             }else{
                 data.erro = "Invalid Token!";
-                errorlog("Router: /api/v1/token/valid ","Inavlid Token: "+data);
+                errorlog("Router: /api/v1/token/valid ","Inavlid Token: "+JSON.stringify(data));
                 res.status(401).json({"response":401, "error":"Invalid Token!", "body":msg});
             }
         });
@@ -150,8 +150,8 @@ class InvoiceBusiness extends InvoiceController{
          }
         }else{
             data.erro = "Invalid Token!";
-            errorlog("Router: /api/v1/token/valid ","Inavlid Token: "+data);
-            res.status(400).json({"response":400, "error":"Invalid Token!", "body":msg});
+            errorlog("Router: /api/v1/token/valid ","Inavlid Token: "+JSON.stringify(data));
+            res.status(401).json({"response":401, "error":"Invalid Token!", "body":msg});
         }
     });
     }
