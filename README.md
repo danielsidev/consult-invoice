@@ -13,8 +13,11 @@ Isso irá criar o banco, o usuário da aplicação e  tabela para os posts.
 ``` bash
 sudo npm install
 ```
-
-### Irá rodar os testes
+### Irá rodar os testes de unidade
+``` bash
+sudo npm run test-pre
+``` 
+### Irá rodar os testes de API
 ``` bash
 sudo npm run test-dev
 ``` 

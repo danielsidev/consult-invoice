@@ -1,6 +1,6 @@
 const test = require('tape');
 const supertest = require('supertest');
-const server = require('./server');
+const server = require('../server');
 let token = null;
 
 /** TEST CREATE TOKEN */

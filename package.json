@@ -4,8 +4,9 @@
     "description": "Restful Api to server the reddit consult",
     "main": "server.js",
     "scripts": {
-        "test-dev": "export NODE_ENV=dev && node server.test | tap-spec",
-        "test-prod": "export NODE_ENV=prod && node server.test | tap-spec",
+        "test-pre":"export NODE_ENV=dev && node test/business.test | tap-spec",
+        "test-dev": "export NODE_ENV=dev && node test/server.test | tap-spec",
+        "test-prod": "export NODE_ENV=prod && node test/server.test | tap-spec",
         "debug": "export NODE_ENV=dev && node --inspect server.js",
         "dev": "export NODE_ENV=dev && node server.js",
         "ambiente-dev": "export NODE_ENV=dev",

@@ -72,7 +72,7 @@ class InvoiceBusiness extends InvoiceController{
             "id_invoice":this.getIdInvoice()
         }        
     }
-    /**Return a list from invoices */
+    /** Return a list from invoices */
     getInvoiceList(res){
         this.tokenControl.checkTokenValid(this.token,(resposta, msg) =>{
             let data = {"success":resposta, "erro":null, "message":msg};
