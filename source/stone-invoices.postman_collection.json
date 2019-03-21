@@ -12,7 +12,7 @@
 				"header": [
 					{
 						"key": "x-access-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoiMjAxOS0wMy0xNCAwMDowMTozNCIsImlhdCI6MTU1MjUzMjQ5NCwiZXhwIjoxNTUyNTM2MDk0fQ.ajY9OZJXgQlucIPzuplHa6_bUCzCAtRUKTqgZBUeAwM",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoiMjAxOS0wMy0xNCAwMDo1MjoxNyIsImlhdCI6MTU1MjUzNTUzNywiZXhwIjoxNTUyNTM5MTM3fQ.mmKwDwXdUjzZayOHF6BcHQOhLBXUX_riRwEziUqlxYs",
 						"type": "text"
 					}
 				],
@@ -21,7 +21,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:32019/api/v1/invoices/delete/",
+					"raw": "http://localhost:32019/api/v1/invoices/delete/9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -32,7 +32,7 @@
 						"v1",
 						"invoices",
 						"delete",
-						""
+						"9"
 					]
 				}
 			},
@@ -51,18 +51,16 @@
 					{
 						"key": "x-access-order-by-year",
 						"value": "ReferenceYear",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					},
 					{
 						"key": "x-access-order-by-doc",
 						"value": "Document",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					},
 					{
 						"key": "x-access-token",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoiMjAxOS0wMy0xMiAyMjozNzowNSIsImlhdCI6MTU1MjQ0MTAyNSwiZXhwIjoxNTUyNDQ0NjI1fQ.-H18435tNiMgUHULq6LEyRDt5mlUd0Q_mqBG29ZfifE",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoiMjAxOS0wMy0xNCAyMToxNjoxMCIsImlhdCI6MTU1MjYwODk3MCwiZXhwIjoxNTUyNjEyNTcwfQ.rGQE94E66CnR-H80KuKxvAzfHJSwLDwBiZRwpVDvJlk",
 						"type": "text"
 					}
 				],
@@ -71,7 +69,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:32019/api/v1/invoices/list/0/1",
+					"raw": "http://localhost:32019/api/v1/invoices/list",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -81,9 +79,7 @@
 						"api",
 						"v1",
 						"invoices",
-						"list",
-						"0",
-						"1"
+						"list"
 					]
 				}
 			},
@@ -160,6 +156,50 @@
 						"v1",
 						"token",
 						"valid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FILTER INVOICES",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkYXRhIjoiMjAxOS0wMy0yMCAyMzo0MzowNCIsImlhdCI6MTU1MzEzNjE4NCwiZXhwIjoxNTUzMTM5Nzg0fQ.RrR7jtH5NpRCarp45Sg6sQTJt8UX3ohqWOqTfL9A0gM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:32019/api/v1/invoices/list/filter/0/10/ReferenceMonth/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32019",
+					"path": [
+						"api",
+						"v1",
+						"invoices",
+						"list",
+						"filter",
+						"0",
+						"10",
+						"ReferenceMonth",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
