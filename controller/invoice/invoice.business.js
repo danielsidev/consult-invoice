@@ -19,6 +19,7 @@ class InvoiceBusiness extends InvoiceController{
         this.token        = tokenSession,
         this.is_active    = 0, 
         this.desactive_at = moment().format("YYYY-MM-DD HH:mm:ss"),
+        this.filter       = {"name":"", "value":""},
         this.tokenControl = new TokenController()
     }    
     setDataFilter(dataBusiness){
@@ -37,6 +38,27 @@ class InvoiceBusiness extends InvoiceController{
             "doc"  :this.doc
         }
         return data;
+    }
+    setPagination(dataBusiness){
+
+        this.start        = (dataBusiness.start!==undefined)?dataBusiness.start:0
+        this.end          = (dataBusiness.end!==undefined)?dataBusiness.end:10
+    }
+    getPagination(){
+        let data = {
+            "start":this.start,
+            "end"  :this.end
+        };
+        return data;
+    }
+
+
+    setFilter(filter){
+        console.log("Filter: "+JSON.stringify(filter));
+        this.filter = filter;
+    }
+    getFilter(){
+        return this.filter;
     }
     setOrderBy(data){
         this.order_by.push(data);
@@ -72,6 +94,53 @@ class InvoiceBusiness extends InvoiceController{
             "id_invoice":this.getIdInvoice()
         }        
     }
+
+
+    /** Return a list from invoices with filter */
+    getInvoiceListFilter(res){
+        this.tokenControl.checkTokenValid(this.token,(resposta, msg) =>{
+            let data = {"success":resposta, "erro":null, "message":msg};
+            if(resposta){
+                if(typeof this.getFilter() === 'object'){
+                    if(this.getFilter().name === 'ReferenceMonth' || this.getFilter().name==='ReferenceYear' || this.getFilter().name==='Document'){                          
+                        this.getInvoiceControlFilter(this.getPagination().start, this.getPagination().end, this.getFilter())
+                        .then((response) =>{
+                            if(response && response.length >0){
+                                data = { "filter":this.getFilter()};
+                                successlog("Router: api/v1/invoices/list/filter ","We Found Invoices with filter by: "+JSON.stringify(data));
+                                res.status(200).json({"response":200, "error":null, "body":response});
+                            }else{
+                                successlog("Router: api/v1/invoices/list/filter ","We Not Found Invoices with filter: "+JSON.stringify(data));
+                                res.status(202).json({"response":202, "message":"We Not Found Invoices with this filter ","error":null, "body":response});
+                            }
+                        })
+                        .catch((error) => {
+                            console.log("ERROR: "+JSON.stringify(error));
+                            if(error!=={}){
+                            errorlog("Router: api/v1/invoices/list/filter ",error);
+                            res.status(400).json({"response":400, "error":"Is not possible to find invoices now. Try again later.", "body":null});
+                            }else{
+                                data = { "orderBy":orderBy};
+                                successlog("Router: api/v1/invoices/list/filter ","We Not Found Invoices with filter: "+JSON.stringify(data));
+                                res.status(202).json({"response":202, "message":"We Not Found Invoices with this filter ","error":null, "body":response});
+                            }
+                        });
+                    }else{
+                    errorlog("Router: api/v1/invoices/list/filter ","Invalid Filter! ");
+                    res.status(400).json({"response":400, "error":"Invalid Filter", body:null});
+                    }    
+                }else{
+                errorlog("Router: api/v1/invoices/list/ ","Filter is not a object with name and value!");
+                res.status(400).json({"response":400, "error":"Filter is not a object with name and value!", "body":null});
+                }
+            }else{
+                data.erro = "Invalid Token!";
+                errorlog("Router: /api/v1/token/valid ","Inavlid Token: "+JSON.stringify(data));
+                res.status(401).json({"response":401, "error":"Invalid Token!", "body":msg});
+            }
+        });
+    }
+
     /** Return a list from invoices */
     getInvoiceList(res){
         this.tokenControl.checkTokenValid(this.token,(resposta, msg) =>{

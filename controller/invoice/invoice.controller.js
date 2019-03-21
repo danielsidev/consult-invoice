@@ -25,6 +25,20 @@ class InvoiceController extends InvoiceDao{
              });
         }); 
     }
+
+    getInvoiceControlFilter(lstart, lend, filter){
+        let start = parseInt(lstart);
+        let end   = parseInt(lend);
+        return new Promise((resolve, reject) => {
+                    this.getInvoicesFilter(start, end, filter,(err,rows) =>{
+                        (err!==null)?reject(err):resolve(rows);
+                     });
+       });
+
+        
+          
+    }
+
     deleteInvoiceControl(Invoice){
         return new Promise((resolve, reject) => {           
             this.deleteInvoice(Invoice, (err) =>{

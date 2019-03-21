@@ -51,21 +51,6 @@ test('GET /api/v1/invoices/list/0/5 -- Order By Null', (t) => {
     });
 });
 
-/** TEST GET INVOICES  WHEN LESS ORDER BY*/
-test('GET /api/v1/invoices/list -- Order By Null and Less Pagination defined', (t) => {    
-    supertest(server)
-    .get('/api/v1/invoices/list')
-    .set('x-access-token', token)
-    .set('x-access-order-by-month', 'ReferenceMonth')
-    .expect('Content-Type', /json/)
-    .expect(200)
-    .end((err, res) =>{
-    t.error(err, 'No error in call')
-    t.assert(res.body.response ===200, "Reponse 200")
-    t.assert(res.body.body.length > 0, "Return list from invoices Order By ReferenceMonth eith pagination ddeafult( start:0, end:10)")
-    t.end()
-    });
-});
 
 /** TEST GET INVOICES  ORDER BY MONTH*/
 test('GET /api/v1/invoices/list/0/10 -- Order By ReferenceMonth', (t) => {    
